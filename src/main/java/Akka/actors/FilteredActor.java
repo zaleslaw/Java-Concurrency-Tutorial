@@ -18,7 +18,7 @@ public class FilteredActor extends AbstractActor {
                         this.getSender().tell("Romeo, O, Romeo!", this.self());
                         log.info("Received String message: {}", s);
                     } else {
-                        log.info("Rejected message: {}", s);
+                        log.info("Rejected message: {} from {} ", s, this.getSender());
                     }
                 })
                 .matchAny(o -> log.info(this.self().toString() + " received unknown message"))

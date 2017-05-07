@@ -62,8 +62,14 @@ public class Ex_7_Inbox_for_two_dead_lovers {
         romeo.tell(PoisonPill.getInstance(), ActorRef.noSender());
         juliet.tell(PoisonPill.getInstance(), ActorRef.noSender());
 
+        // or
+
+        //romeo.tell(9, ActorRef.noSender());
+
         System.out.println(romeoInbox.receive(Duration.create(2, TimeUnit.SECONDS)));
         System.out.println(julietInbox.receive(Duration.create(2, TimeUnit.SECONDS)));
+
+
 
     }
 }
