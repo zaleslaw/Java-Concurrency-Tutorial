@@ -14,12 +14,9 @@ public class SpeakingActor extends AbstractActor {
 
                 .match(String.class, s -> {
                     log.info("Received String message: {}", s);
-                    System.out.println(s);
-
                 })
                 .match(Integer.class, i -> {
                     log.info("Received Integer message: {}", i);
-                    System.out.println(i);
                 })
                 .matchAny(o -> log.info("Received unknown message"))
                 .build();
