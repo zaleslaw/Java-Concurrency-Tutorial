@@ -22,7 +22,7 @@ public class ForkJoinWithSettings {
         } while (!task.isDone());
 
 
-        System.out.println("# of tasks " + FibonacciTask.getTaskCounter());
+        System.out.println("# of tasks " + task.getTaskCounter());
 
 
         pool.shutdown();

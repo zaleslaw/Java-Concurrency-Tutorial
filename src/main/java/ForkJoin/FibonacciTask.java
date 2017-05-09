@@ -3,6 +3,9 @@ package ForkJoin;
 import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Naive implementation without real threshold
+ */
 public class FibonacciTask extends RecursiveTask {
 
     private Integer fibIndex;
@@ -14,7 +17,7 @@ public class FibonacciTask extends RecursiveTask {
         this.fibIndex = fibIndex;
     }
 
-    public static Integer getTaskCounter() {
+    public Integer getTaskCounter() {
         return taskCounter.get();
     }
 
@@ -32,16 +35,17 @@ public class FibonacciTask extends RecursiveTask {
         Integer result1 = (Integer) task1.join();
 
         final FibonacciTask task2 = new FibonacciTask(fibIndex-2);
-        Integer result2 = task2.compute();
+        task2.fork();
         taskCounter.getAndIncrement();
+        Integer result2 = (Integer) task2.join();
 
         int result = result1 + result2;
-        try {
+/*        try {
             Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        System.out.println("Intermediate result is " + result + " from thread " + Thread.currentThread().getName());
+        System.out.println("Intermediate result is " + result + " from thread " + Thread.currentThread().getName());*/
         return result;
     }
 }
