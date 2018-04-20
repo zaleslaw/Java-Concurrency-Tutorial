@@ -1,4 +1,4 @@
-package Old;
+package Old.WaitNotify;
 
 /**
  * Remember about order: monitor [and MAIN thread] is awaiting before thread is running. This is a kind of deadlock by your hands.
