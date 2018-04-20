@@ -1,6 +1,6 @@
 package Old.monitor;
 
-public class Ex_6_Run_threads {
+public class Ex_6_Run_threads_concurently {
     public static void main(String[] args) throws InterruptedException {
         SynchronizedObject2 mutableObject = new SynchronizedObject2();
         var t = new Thread(()->{
