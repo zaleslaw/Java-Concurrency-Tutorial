@@ -112,10 +112,10 @@ import java.util.Queue;
  * - locked <0x397> (a java.util.LinkedList)
  * at Old.WaitNotify.KafkaEmulator.KafkaEmulator$$Lambda$1.157456214.run(Unknown Source:-1)
  * at java.lang.Thread.run(Thread.java:844)
- *
+ * <p>
  * In case with notify all a few threads will be notified.
- *
- *
+ * <p>
+ * <p>
  * // TODO: learn case with  https://howtodoinjava.com/core-java/multi-threading/how-to-work-with-wait-notify-and-notifyall-in-java/
  */
 public class KafkaEmulator {
@@ -138,37 +138,25 @@ public class KafkaEmulator {
                     }
                     System.out.println(thisThread.getName() + " thread got notified at time:" + System.currentTimeMillis());
                     System.out.println(thisThread.getName() + " processed the Kafka message with key : " + kafka.poll().key);
-
-                    // kafka.notify(); // to finish processing
-                    // System.out.println("NOTIFYYYYYYY");
                 }
             });
             consumer.start();
         }
 
-//        var producer = new Thread(()->{
-//            for (int i = 0; i < 100; i++) {
-//                synchronized (kafka) {
-//                    kafka.offer(new Message(i, "Log"));
-//                    kafka.notify();
-//                }
-//                try {
-//                    Thread.sleep(300);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-
         var producer = new Thread(() -> {
-            synchronized (kafka) {
-                for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 100; i++) {
+                synchronized (kafka) {
                     kafka.offer(new Message(i, "Log"));
+                    kafka.notify();
                 }
-                kafka.notifyAll();
+                try {
+                    Thread.sleep(300);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-
         });
+
 
         producer.start();
         producer.join();
@@ -185,8 +173,6 @@ public class KafkaEmulator {
             this.key = key;
             this.value = value;
         }
-
-
     }
 }
 
