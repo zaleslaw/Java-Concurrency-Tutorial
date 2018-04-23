@@ -9,6 +9,10 @@ import java.util.Queue;
  * In case with notify all a few threads will be notified.
  * <p>
  * <p>
+ *
+ * Does the notifyAll() method really wake up all the threads?
+ * Yes and no. All of the waiting threads wake up, but they still have to reacquire the object lock. So the threads do not run in parallel: they must each wait for the object lock to be freed.
+ * Thus, only one thread can run at a time, and only after the thread that called the notifyAll() method releases its lock.
  * // TODO: learn case with  https://howtodoinjava.com/core-java/multi-threading/how-to-work-with-wait-notify-and-notifyall-in-java/
  */
 public class KafkaEmulator2 {
