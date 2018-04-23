@@ -1,4 +1,4 @@
-package Chapter_1_ThreadAPI.daemon;
+package Chapter_1_ThreadAPI.Part_4_Daemons;
 
 /** It never stops */
 public class ForkThread {

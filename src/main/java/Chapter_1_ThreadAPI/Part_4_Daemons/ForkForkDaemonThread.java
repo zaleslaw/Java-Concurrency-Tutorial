@@ -1,4 +1,4 @@
-package Chapter_1_ThreadAPI.daemon;
+package Chapter_1_ThreadAPI.Part_4_Daemons;
 
 /** It will stops when the main thread die */
 public class ForkForkDaemonThread {
