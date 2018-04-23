@@ -3,3 +3,7 @@ https://crunchify.com/how-to-get-process-id-and-live-threads-of-a-java-applicati
 https://stackoverflow.com/questions/15370120/get-thread-by-name
 
 2. Simple Thread Scheduler based on groups (OS simulation)
+
+3. Different methods to handle threads interruption and destroying
+http://www.tutorialspoint.com/java/lang/java_lang_threadgroup.htm
+
