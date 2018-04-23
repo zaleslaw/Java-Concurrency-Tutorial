@@ -1,4 +1,4 @@
-package Chapter_1_ThreadAPI.Part_1_Creation;
+package Chapter_1_ThreadAPI.Part_1_Creation_Sleep_Yield;
 
 public class Ex_2_Java_10_Style {
     public static void main(String[] args) {
