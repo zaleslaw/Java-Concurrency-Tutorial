@@ -14,8 +14,10 @@ public class Ex_10_Correct_Handling_Interruption_Exceptions {
             while (!Thread.currentThread().isInterrupted()) {
                 counter++;
                 try {
-                    Thread.sleep(2000);
+                    Thread.sleep(2000); // <----- After 1 second this thread will wake up from the sleep
                 } catch (InterruptedException e) {
+                    System.out.println("#3 " + Thread.currentThread().getName() + ":: interruption status is " + Thread.currentThread().isInterrupted());
+                    System.out.println("#4 " + Thread.currentThread().getName() + "::" + Thread.currentThread().getState());
                     System.out.println(e);
                     Thread.currentThread().interrupt();
                 }

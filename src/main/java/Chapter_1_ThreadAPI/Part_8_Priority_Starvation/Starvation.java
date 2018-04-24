@@ -1,7 +1,6 @@
 package Chapter_1_ThreadAPI.Part_8_Priority_Starvation;
 
 public class Starvation {
-    private static Object mutex = new Object();
     private static volatile boolean isActive = true;
 
     public static void main(String[] args) {
