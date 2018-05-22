@@ -1,0 +1,11 @@
+Thread.stop() небезопасен в том плане, что перед уничтожением потока отпускаются все мониторы и блокировки. Таким образом, если поток совершал какие-либо действия над объектом в защищенном коде и не успел завершить логику — остальные потоки получат объект в непредсказуемом состоянии.
+По сути, такая ситуация возможна в любом коде, который плохо обрабатывает исключения.
+
+https://docs.oracle.com/javase/7/docs/technotes/guides/concurrency/threadPrimitiveDeprecation.html
+
+Why is Thread.stop deprecated?
+Because it is inherently unsafe. Stopping a thread causes it to unlock all the monitors that it has locked. (The monitors are unlocked as the ThreadDeath exception propagates up the stack.) If any of the objects previously protected by these monitors were in an inconsistent state, other threads may now view these objects in an inconsistent state. Such objects are said to be damaged. When threads operate on damaged objects, arbitrary behavior can result. This behavior may be subtle and difficult to detect, or it may be pronounced. Unlike other unchecked exceptions, ThreadDeath kills threads silently; thus, the user has no warning that his program may be corrupted.
+The corruption can manifest itself at any time after the actual damage occurs, even hours or days in the future.
+
+
+Как работать с Interruption https://www.ibm.com/developerworks/ru/library/j-jtp05236/
