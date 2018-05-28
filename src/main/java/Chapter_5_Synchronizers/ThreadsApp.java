@@ -11,15 +11,13 @@ public class ThreadsApp {
             new Philosopher(sem,i).start();
     }
 }
-// класс философа
+
 class Philosopher extends Thread 
 {
-    Semaphore sem; // семафор. ограничивающий число философов
-    // кол-во приемов пищи
+    Semaphore sem;
+    // how any times to eat
     int num = 0;
-    // условный номер философа
     int id;
-    // в качестве параметров конструктора передаем идентификатор философа и семафор
     Philosopher(Semaphore sem, int id)
     {
         this.sem=sem;
@@ -30,25 +28,25 @@ class Philosopher extends Thread
     {
         try
         {
-            while(num<3)// пока количество приемов пищи не достигнет 3
+            while (num < 3)
             {
-                //Запрашиваем у семафора разрешение на выполнение
-                sem.acquire(); 
-                System.out.println ("Философ " + id+" садится за стол");
-                // философ ест
-                sleep(500);
+
+                sem.acquire();
+                System.out.println("Philosopher  " + id + " is starting to eat");
+
+                sleep(500); // philosopher is eating
                 num++;
-                     
-                System.out.println ("Философ " + id+" выходит из-за стола");
+
+                System.out.println("Philosopher " + id + " is finishing to eat");
                 sem.release();
-             
-                // философ гуляет
+
+                // Philosopher is walking around
                 sleep(500);
             }
         }
         catch(InterruptedException e)
         {
-            System.out.println ("у философа " + id + " проблемы со здоровьем");
+            System.out.println("Philosopher " + id + " is sick");
         }
     }
 }

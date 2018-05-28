@@ -1,4 +1,4 @@
-package Chapter_3_Lock_mechanism.ReadWriteLock;
+package Chapter_3_Lock_mechanism.Part_2_ReadWriteLock;
 
 /**
  * ThreadSafe map based on ReentrantReadWriteLock

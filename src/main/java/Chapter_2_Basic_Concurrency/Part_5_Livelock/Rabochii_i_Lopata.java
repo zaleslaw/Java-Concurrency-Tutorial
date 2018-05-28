@@ -1,6 +1,6 @@
 package Chapter_2_Basic_Concurrency.Part_5_Livelock;
 
-public class Livelock {
+public class Rabochii_i_Lopata {
 
     public static void main(String[] args) {
         final Rabochiy rabochiy1 = new Rabochiy("Rabochiy 1 ", true);

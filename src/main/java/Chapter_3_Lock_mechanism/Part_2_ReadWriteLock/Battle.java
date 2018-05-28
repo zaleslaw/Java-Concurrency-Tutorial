@@ -1,4 +1,4 @@
-package Chapter_3_Lock_mechanism.ReadWriteLock;
+package Chapter_3_Lock_mechanism.Part_2_ReadWriteLock;
 
 /**
  * Created by Alexey_Zinovyev on 07-Jun-17.
