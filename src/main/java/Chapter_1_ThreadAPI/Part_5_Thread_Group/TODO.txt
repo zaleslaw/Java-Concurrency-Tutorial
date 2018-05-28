@@ -7,3 +7,23 @@ https://stackoverflow.com/questions/15370120/get-thread-by-name
 3. Different methods to handle threads interruption and destroying
 http://www.tutorialspoint.com/java/lang/java_lang_threadgroup.htm
 
+4. Enumerate method is not thread safe. Add an example to demonstrate this thing.
+
+ThreadGroup isn’t thread-safe. For example, to obtain a count of
+the active threads in a thread group, you would call ThreadGroup’s
+int activeCount() method. You would then use this value to
+size the array that you pass to one of ThreadGroup’s enumerate()
+methods. However, there is no guarantee that the count will
+remain accurate because, between the time you’ve created the
+array and the time you pass it to enumerate(), this count could
+change because of thread creation and termination. If the array
+is too small, enumerate() silently ignores extra threads. The
+same can be said of Thread’s activeCount() and enumerate()
+methods, which delegate to the ThreadGroup methods for the
+current thread. This problem is an example of the “time of check
+to time of use” (https://en.wikipedia.org/wiki/Time_of_
+check_to_time_of_use) class of software bug. (This bug also
+rears its ugly head in scenarios where you need to check for file
+existence before performing an operation on the file. Between the
+file check and the operation, the file might be deleted or created.)
+
