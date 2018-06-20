@@ -1,0 +1,3 @@
+1. Control Task flow
+2. Cancel tasks correctly
+3. Reject tasks correctly with next status control

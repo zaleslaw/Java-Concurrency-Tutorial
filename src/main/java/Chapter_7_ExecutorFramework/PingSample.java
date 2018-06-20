@@ -25,6 +25,5 @@ public class PingSample {
         } finally {
             pool.shutdownNow();
         }
-
     }
 }
