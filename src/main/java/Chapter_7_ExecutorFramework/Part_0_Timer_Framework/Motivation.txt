@@ -1,0 +1,14 @@
+When to use Timer instead Executor?
+
+Only in ancient Java 1.4:)
+
+Look here: https://stackoverflow.com/questions/409932/java-timer-vs-executorservice
+
+According to Java Concurrency in Practice:
+
+Timer can be sensitive to changes in the system clock, ScheduledThreadPoolExecutor isn't.
+Timer has only one execution thread, so long-running task can delay other tasks. ScheduledThreadPoolExecutor can be configured with any number of threads. Furthermore, you have full control over created threads, if you want (by providing ThreadFactory).
+Runtime exceptions thrown in TimerTask kill that one thread, thus making Timer dead :-( ... i.e. scheduled tasks will not run anymore. ScheduledThreadExecutor not only catches runtime exceptions, but it lets you handle them if you want (by overriding afterExecute method from ThreadPoolExecutor). Task which threw exception will be canceled, but other tasks will continue to run.
+If you can use ScheduledThreadExecutor instead of Timer, do so.
+
+One more thing... while ScheduledThreadExecutor isn't available in Java 1.4 library, there is a Backport of JSR 166 (java.util.concurrent) to Java 1.2, 1.3, 1.4, which has the ScheduledThreadExecutor class.
