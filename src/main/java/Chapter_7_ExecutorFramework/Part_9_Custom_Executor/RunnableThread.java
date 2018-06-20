@@ -1,4 +1,4 @@
-package Chapter_7_ExecutorFramework.Part_6_Custom_Executor;
+package Chapter_7_ExecutorFramework.Part_9_Custom_Executor;
 
 public class RunnableThread implements Runnable {
     String seq = null;

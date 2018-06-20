@@ -1,4 +1,4 @@
-package Chapter_7_ExecutorFramework.Part_6_Custom_Executor;
+package Chapter_7_ExecutorFramework.Part_9_Custom_Executor;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

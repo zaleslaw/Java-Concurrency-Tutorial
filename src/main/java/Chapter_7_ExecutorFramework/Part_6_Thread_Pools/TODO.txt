@@ -1,0 +1,2 @@
+Compare different ThreadPools, community implementations, make simple benchmarks
+Illustrate WorkStealing idea from Java 8

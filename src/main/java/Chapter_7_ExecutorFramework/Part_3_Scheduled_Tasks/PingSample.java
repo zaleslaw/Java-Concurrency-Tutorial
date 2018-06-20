@@ -1,4 +1,4 @@
-package Chapter_7_ExecutorFramework;
+package Chapter_7_ExecutorFramework.Part_3_Scheduled_Tasks;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;

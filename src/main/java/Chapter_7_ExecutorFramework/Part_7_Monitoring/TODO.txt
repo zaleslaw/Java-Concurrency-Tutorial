@@ -1,0 +1,18 @@
+ff getCorePoolSize(): This method returns an int number, which is the core
+number of threads. It's the minimum number of threads that will be in the internal
+thread pool when the executor is not executing any task.
+ff getPoolSize(): This method returns an int value, which is the actual size of the
+internal thread pool.
+ff getActiveCount(): This method returns an int number, which is the number of
+threads that are currently executing tasks.
+ff getTaskCount(): This method returns a long number, which is the number of
+tasks that have been scheduled for execution.
+ff getCompletedTaskCount(): This method returns a long number, which is
+the number of tasks that have been executed by this executor and have finished
+their execution.
+ff isShutdown(): This method returns a Boolean value when the shutdown()
+method of an executor has been called to finish its execution.
+ff isTerminating(): This method returns a Boolean value when the executor
+is doing the shutdown() operation, but it hasn't finished it yet.
+ff isTerminated(): This method returns a Boolean value when this executor
+has finished its execution.
